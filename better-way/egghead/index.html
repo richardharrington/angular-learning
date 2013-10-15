@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <title>AngularJS Tutorials</title>
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/4.3.2/css/foundation.css">
+    </head>
+    <body>
+        <div ng-app="myApp">
+
+            <div ng-controller="FirstCtrl">
+                <input type="text" ng-model="data.message">
+                <h1>{{ data.message }}</h1>
+            </div>
+
+            <div ng-controller="SecondCtrl">
+                <input type="text" ng-model="data.message">
+                <h1>{{ data.message }}</h1>
+            </div>
+            
+        </div>
+        <script src="http://code.angularjs.org/1.2.0-rc.2/angular.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html> <html ng-app>
+    <head>
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/4.3.2/css/foundation.css">
+        <title>My Startup Funder</title>
+    </head>
+    <body>
+        <h1>My Startup Funder</h1>
+        <form ng-controller="StartupController">
+            Starting: <input ng-model="funding.startingEstimate">
+            Recommendation: {{funding.needed | currency}}
+            <button ng-click="requestFunding()">Fund my startup!</button>
+            <button ng-click="reset()">Reset</button>
+        </form>
+
+        <script src="http://code.angularjs.org/1.2.0-rc.2/angular.js"></script>
+        <script>
+
+            function StartupController($scope) {
+                $scope.funding = { startingEstimate: 0 };
+
+                var computeNeeded = function() {
+                    $scope.funding.needed = $scope.funding.startingEstimate * 10;
+                }
+
+                $scope.requestFunding = function() {
+                    alert("Sorry, you need more customers");
+                }
+
+                $scope.reset = function() {
+                    $scope.funding.startingEstimate = 0;
+                }
+
+                $scope.$watch('funding.startingEstimate', computeNeeded);
+            }
+
+        </script>
+    </body>
+</html>
+
